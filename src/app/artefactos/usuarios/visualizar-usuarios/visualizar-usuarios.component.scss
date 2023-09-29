@@ -1,0 +1,33 @@
+
+$colorSeleccion: #ed8a19;
+$colorFondoMenu: #ebba16;
+
+#divPrincipal {
+    width: 85%;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    // overflow-y: scroll;
+
+    #divCard {
+        margin-top: 15px;
+        // overflow-y: scroll;
+
+        .card-title {
+            font-weight: 900;
+        }
+    }
+    .card {
+        background-color: #ffbb9c;
+    }
+    .lbs {
+        width: 120px;
+    }
+    .inputsUsuario {
+        width: 150px;
+        margin-left: 30px;
+        border-radius: 10px;
+        text-align: center;
+        color: #000000;
+    }
+}

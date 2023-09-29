@@ -1,0 +1,35 @@
+
+$colorSeleccion: #ed8a19;
+$colorFondoMenu: #ebba16;
+
+#divPrincipal {
+    width: 20%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid $colorSeleccion;
+    border-radius: 10px;
+
+    #formRegistrar {
+        text-align: center;
+        padding: 8px;
+    }
+    div>.form-control {
+        text-align: center;
+        transition: border 0.3s ease-in-out;
+    }
+
+    div>.form-control:focus {
+        box-shadow: 4px 4px 12px $colorSeleccion, -4px -4px 12px $colorSeleccion;
+    }
+
+    .btnRegistrar {
+        margin-top: 5px;
+        background-color: $colorSeleccion;
+    }
+
+    .btnRegistrar:hover {
+        transition: 0.9s;
+        background-color: $colorFondoMenu;
+    }
+}

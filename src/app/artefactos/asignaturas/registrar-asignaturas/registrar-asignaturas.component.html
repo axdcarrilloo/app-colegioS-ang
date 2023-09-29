@@ -1,0 +1,9 @@
+
+<div id="divPrincipal">
+    <form id="formRegistrar" [formGroup]="asignaturaForm" (ngSubmit)="registrar()">
+        <div class="mb-2">
+            <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+        </div>    
+        <button type="submit" class="btn btnRegistrar"> Registrar </button>
+    </form>
+</div>

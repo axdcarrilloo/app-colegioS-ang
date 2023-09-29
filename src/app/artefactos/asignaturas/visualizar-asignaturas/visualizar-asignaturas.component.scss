@@ -1,0 +1,25 @@
+
+#divCard {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    // overflow-y: scroll;
+
+    .card-title {
+        font-weight: 900;
+    }
+}
+.card {
+    background-color: #ffbb9c;
+}
+.lbs {
+    width: 120px;
+}
+.inputsAsignatura {
+    width: 90px;
+    margin-left: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #000000;
+}

@@ -1,0 +1,37 @@
+
+$colorSeleccion: #ed8a19;
+$colorFondoMenu: #ebba16;
+
+#divBusqueda {
+    width: 410px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: 2px;
+    display: flex;
+
+    .form-control {
+        text-align: center;
+        // width: 150px;
+        transition: border 0.3s ease-in-out;
+        margin-left: 8px;
+    }
+    .form-control:focus {
+        box-shadow: 4px 4px 12px $colorSeleccion, -4px -4px 12px $colorSeleccion;
+    }
+    .btnBuscar {
+        background-color: $colorSeleccion;
+        border-radius: 10px;
+        // height: 38px;
+        margin-left: 15px;
+    }
+    .btnBuscar:hover {
+        transition: 0.9s;
+        background-color: $colorFondoMenu;
+    }
+    .btnBuscarDisabled {
+        background-color: $colorSeleccion;
+        border-radius: 10px;
+        // height: 38px;
+        margin-left: 15px;
+    }
+}

@@ -1,0 +1,17 @@
+<div id="divCard">
+    <filtro-busqueda [filtrarA]="'02'"></filtro-busqueda>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let asignatura of asignaturas">
+            <div class="card">
+                <!-- <img src="..." class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ asignatura.nombre }} </h5>
+                    <p>
+                        <label class="lbs"> Codigo </label>
+                        <input class="inputsAsignatura" value="ASG005" disabled />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

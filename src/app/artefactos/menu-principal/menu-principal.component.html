@@ -1,0 +1,73 @@
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="{{iconoEscudo}}" class="imgEscudo"/>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown" *ngIf="tipoMenu=='02'">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Registros </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['registrar-usuario', tipoUsuarioEstudiante]"> Estudiantes </a></li>
+              <li><a class="dropdown-item" [routerLink]="['registrar-usuario', tipoUsuarioProfesor]"> Profesores </a></li>
+              <li><a class="dropdown-item" [routerLink]="['registrar-usuario', tipoUsuarioCoordinador]"> Coordinadores </a></li>
+              <li><a class="dropdown-item" [routerLink]="['registrar-usuario', tipoUsuarioRector]"> Rectores </a></li>
+              <li><a class="dropdown-item" routerLink="registrar-asignatura"> Asignaturas </a></li>
+              <li><a class="dropdown-item" href="#"> Grados </a></li>
+              <li><a class="dropdown-item" href="#"> Periodos </a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="tipoMenu=='02'">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Visualizaciones </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="visualizar-usuarios"> Estudiantes </a></li>
+              <li><a class="dropdown-item" href="#"> Profesores </a></li>
+              <li><a class="dropdown-item" href="#"> Coordinadores </a></li>
+              <li><a class="dropdown-item" href="#"> Rectores </a></li>
+              <li><a class="dropdown-item" routerLink="visualizar-asignatura"> Asignaturas </a></li>
+              <li><a class="dropdown-item" href="#"> Grados </a></li>
+              <li><a class="dropdown-item" href="#"> Periodos </a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="tipoMenu=='02'">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Periodo
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown" *ngIf="tipoMenu=='02'">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Notas
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item" *ngIf="tipoMenu=='01'">
+            <a class="nav-link a-iniciar" title="Iniciar Sesion">
+              <img src="{{ iconoIniciarSesion }}"/>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="tipoMenu=='02'">
+            <a class="nav-link a-salir" title="Cerrar Sesion"> 
+              <img src="{{ iconoCerrarSesion }}"/>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

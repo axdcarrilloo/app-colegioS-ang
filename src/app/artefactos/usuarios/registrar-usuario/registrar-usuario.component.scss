@@ -1,0 +1,44 @@
+
+$colorSeleccion: #ed8a19;
+$colorFondoMenu: #ebba16;
+
+#formRegistrar {
+    text-align: center;
+
+    #divInpunts {
+        display: flex;
+        border: 5px solid $colorSeleccion;
+        border-radius: 10px;
+        width: 60%;
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+
+        #DivInputs1ro {
+            margin-top: 8px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #DivInputs2do {
+            margin-top: 8px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        div>.form-control {
+            text-align: center;
+            transition: border 0.3s ease-in-out;
+        }
+        div>.form-control:focus {
+            box-shadow: 4px 4px 12px $colorSeleccion, -4px -4px 12px $colorSeleccion;
+        }
+    }
+
+    .btnRegistrar {
+        margin-top: 5px;
+        background-color: $colorSeleccion;
+    }
+    .btnRegistrar:hover {
+        transition: 0.9s;
+        background-color: $colorFondoMenu;
+    }
+}

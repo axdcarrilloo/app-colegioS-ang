@@ -1,0 +1,42 @@
+
+<div id="divPrincipal">
+    <filtro-busqueda [filtrarA]="'01'"></filtro-busqueda>
+    <div id="divCard">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col" *ngFor="let usuario of usuarios">
+                <div class="card">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{usuario.nombres}} {{usuario.apellidos}}</h5>
+                        <p>
+                            <label class="lbs"> Codigo </label>
+                            <input class="inputsUsuario" value="{{ usuario.codigo }}" disabled />
+                        </p>
+                        <p>
+                            <label class="lbs"> Tipo Usuario </label>
+                            <input class="inputsUsuario" value="{{ escribirTipoUsuario(usuario.tipoUsuario!) }}"
+                                disabled />
+                        </p>
+                        <p>
+                            <label class="lbs"> Tipo Documento </label>
+                            <input class="inputsUsuario" value="{{ escribirTipoDocumento(usuario.tipoDocumento!) }}"
+                                disabled />
+                        </p>
+                        <p>
+                            <label class="lbs"> Nro. Documento </label>
+                            <input class="inputsUsuario" value="{{ usuario.numeroDocumento }}" disabled />
+                        </p>
+                        <p>
+                            <label class="lbs"> Celular </label>
+                            <input class="inputsUsuario" value="{{ usuario.celular }}" disabled />
+                        </p>
+                        <p>
+                            <label class="lbs"> Direccion </label>
+                            <input class="inputsUsuario" value="{{ usuario.direccion }}" disabled />
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

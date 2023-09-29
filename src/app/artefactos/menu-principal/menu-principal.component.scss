@@ -1,0 +1,50 @@
+
+$colorFondoMenu: #ebba16;
+// $tipoLetraMenu: Georgia, 'Times New Roman', Times, serif;
+$colorSeleccion: #ed8a19;
+
+.navbar {
+    background-color: $colorFondoMenu;
+    height: 40px;
+    .imgEscudo {
+        width: 30px;
+        height: 32px;
+        transition: 1.2s;
+    }
+    .imgEscudo:hover {
+        width: 40px;
+        height: 42px;
+    }
+    .dropdown-menu {
+        background-color: $colorFondoMenu;
+    }
+    .nav-item {
+        font-weight: 500;
+        // font-family: $tipoLetraMenu;
+    }
+    .nav-item:hover {
+        background-color: $colorSeleccion;
+        transition: 0.8s;
+    }
+    .a-iniciar {
+        position: absolute;
+        left: 95%;
+        margin-top: -20px;
+    }
+    .a-iniciar:hover {
+        background-color: $colorSeleccion;
+        transition: 0.8s;
+    }
+    .a-salir {
+        position: absolute;
+        left: 95%;
+    }
+    .a-salir:hover {
+        background-color: $colorSeleccion;
+        transition: 0.8s;
+    }
+    .dropdown-item:hover {
+        background-color: $colorSeleccion;
+        transition: 0.7s;
+    }
+}

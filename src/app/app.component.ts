@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
   title = 'app-colegioS-ang';
+  tipoMenuExterior = '02'; //Exterior = 01 || Interior = 02
+
 }

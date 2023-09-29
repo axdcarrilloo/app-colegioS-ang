@@ -1,0 +1,18 @@
+
+<div id="divBusqueda">
+    <select class="form-select form-control" aria-label="Seleccionar filtro busqueda" [hidden]="ocutarSelectUsuario">
+        <option value="00" selected> Busqueda Por </option>
+        <option value="01"> Documento </option>
+        <option value="02"> Nombres </option>
+        <option value="03"> Apellidos </option>
+        <option value="04"> Codigo </option>
+    </select>
+    <select class="form-select form-control" aria-label="Seleccionar filtro busqueda" [hidden]="ocutarSelectAsignatura">
+        <option value="00" selected> Busqueda Por </option>
+        <option value="01"> Codigo </option>
+        <option value="02"> Nombres </option>
+    </select>
+    <input type="text" class="form-control" placeholder="Busqueda" (ngModelChange)="activarBotonBuscar()"
+        [(ngModel)]="caracteresInputBuscar">
+    <button [class]="classBtnBuscar" [disabled]="activacionBotonBuscar"> Buscar </button>
+</div>
