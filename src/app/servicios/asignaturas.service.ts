@@ -4,7 +4,6 @@ import { AsignaturaRegistrarDto } from '../dtos/asignatura-registrar-dto';
 import { Observable } from 'rxjs';
 import { Respuesta } from '../dtos/respuesta';
 import { environment } from 'src/environment/environment';
-import { AsignaturaDto } from '../dtos/asignatura-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +12,12 @@ export class AsignaturasService {
 
   constructor(private http: HttpClient) { }
 
-  consultarTodos(): Observable<AsignaturaDto[]> {
-    return this.http.get<AsignaturaDto[]>(environment.URL_BACK_COLEGIOS+'Materia/Todas');
+  consultarPorNombre(nombre: string): Observable<Respuesta> {
+    return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Materia/ConsultarPorNombre/'+nombre);
+  }
+
+  consultarTodos(): Observable<Respuesta> {
+    return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Materia/Todas');
   }
 
   registrar(asignatura: AsignaturaRegistrarDto): Observable<Respuesta> {

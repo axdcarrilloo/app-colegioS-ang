@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'filtro-busqueda',
@@ -10,15 +10,14 @@ export class FiltroBusquedaComponent implements OnInit {
   activacionBotonBuscar: boolean = true;
   caracteresInputBuscar:string = '';
   classBtnBuscar: string = 'btnBuscarDisabled';
-  @Input() filtrarA!: string; // 01 ocultar asignatura, 02 ocutar usuario
+  @Input() filtrarA!: string; // 01 mostrar usuario, 02 mostrar asignatura
   ocutarSelectUsuario: boolean = true;
   ocutarSelectAsignatura: boolean = true;
+  selectAsignatura: string = '00';
+  @Output() infoSeleccionada = new EventEmitter<any[]>();
 
   ngOnInit(): void {
     this.elegirFiltracion();
-    console.log('filtrar A: : '+this.filtrarA);
-    console.log('Ocultar select de asignatura: '+this.ocutarSelectAsignatura);
-    console.log('Ocultar select de usuario: '+this.ocutarSelectUsuario);
   }
 
   elegirFiltracion(): void {
@@ -34,13 +33,27 @@ export class FiltroBusquedaComponent implements OnInit {
 
   activarBotonBuscar(): void {
     let caracteres = this.caracteresInputBuscar.length;
-    if(caracteres > 2) {
+    if(caracteres >= 4) {
       this.activacionBotonBuscar = false;
       this.classBtnBuscar = 'btnBuscar';
     } else {
       this.activacionBotonBuscar = true;
       this.classBtnBuscar = 'btnBuscarDisabled';
-    } 
+    }    
+  }
+
+  enviarInfoSeleccionada(): void {
+    let info = [];
+    info[0] = this.selectAsignatura;
+    info[1] = this.caracteresInputBuscar
+    info[2] = this.filtrarA;
+    this.infoSeleccionada.emit(info);
+    this.limpiarCamposBusqueda();
+  }
+
+  limpiarCamposBusqueda(): void {
+    this.selectAsignatura = '00';
+    this.caracteresInputBuscar = '';
   }
 
 }

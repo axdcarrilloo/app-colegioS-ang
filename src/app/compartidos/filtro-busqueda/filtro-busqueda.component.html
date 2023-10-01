@@ -7,12 +7,16 @@
         <option value="03"> Apellidos </option>
         <option value="04"> Codigo </option>
     </select>
-    <select class="form-select form-control" aria-label="Seleccionar filtro busqueda" [hidden]="ocutarSelectAsignatura">
-        <option value="00" selected> Busqueda Por </option>
+    <select class="form-select form-control" aria-label="Seleccionar filtro busqueda" [(ngModel)]="selectAsignatura" [hidden]="ocutarSelectAsignatura">
+        <option value="00"> Busqueda Por </option>
         <option value="01"> Codigo </option>
         <option value="02"> Nombres </option>
     </select>
-    <input type="text" class="form-control" placeholder="Busqueda" (ngModelChange)="activarBotonBuscar()"
+    <input type="text" class="form-control" placeholder="Busqueda" (keydown)="activarBotonBuscar()"
         [(ngModel)]="caracteresInputBuscar">
-    <button [class]="classBtnBuscar" [disabled]="activacionBotonBuscar"> Buscar </button>
+    <button [class]="classBtnBuscar" [disabled]="activacionBotonBuscar" (click)="enviarInfoSeleccionada()" data-bs-toggle="modal" data-bs-target="#modalGeneral"> Buscar </button>
+</div>
+
+<div class="modal fade" id="modalGeneral" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <modal-general></modal-general>
 </div>

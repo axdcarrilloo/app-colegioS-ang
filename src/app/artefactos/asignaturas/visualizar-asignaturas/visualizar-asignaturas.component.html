@@ -1,5 +1,6 @@
 <div id="divCard">
-    <filtro-busqueda [filtrarA]="'02'"></filtro-busqueda>
+    <filtro-busqueda [filtrarA]="'02'" (infoSeleccionada)="recibirFiltrosBusqueda($event)"></filtro-busqueda>
+    <br/>
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div class="col" *ngFor="let asignatura of asignaturas">
             <div class="card">
