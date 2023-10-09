@@ -15,6 +15,7 @@ export class FiltroBusquedaComponent implements OnInit {
   ocutarSelectAsignatura: boolean = true;
   selectAsignatura: string = '00';
   @Output() infoSeleccionada = new EventEmitter<any[]>();
+  infoModal: string[] = ['02', 'Consulta fallida', 'No se encontraron elementos'];
 
   ngOnInit(): void {
     this.elegirFiltracion();

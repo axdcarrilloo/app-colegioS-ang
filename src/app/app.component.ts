@@ -9,5 +9,5 @@ export class AppComponent {
 
   title = 'app-colegioS-ang';
   tipoMenuExterior = '02'; //Exterior = 01 || Interior = 02
-
+  
 }

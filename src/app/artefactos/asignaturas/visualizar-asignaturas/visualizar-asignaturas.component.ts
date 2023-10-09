@@ -4,6 +4,8 @@ import { AsignaturaDto } from 'src/app/dtos/asignatura-dto';
 import { Respuesta } from 'src/app/dtos/respuesta';
 import { AsignaturasService } from 'src/app/servicios/asignaturas.service';
 
+declare var window: any;
+
 @Component({
   selector: 'visualizar-asignaturas',
   templateUrl: './visualizar-asignaturas.component.html',
@@ -12,17 +14,32 @@ import { AsignaturasService } from 'src/app/servicios/asignaturas.service';
 export class VisualizarAsignaturasComponent implements OnInit {
 
   asignaturas!: AsignaturaDto[];
+  infoModal: string[] = ['02', 'Consulta Fallida', 'Los servidores del Software Horario estan abajo'];
+  modalErrorVisualizacion!: any;
 
   constructor(private asignaturaSvc: AsignaturasService) {}
 
   ngOnInit(): void {
     this.consultarTodos();
+    this.cargarModals();
+  }
+
+  cargarModals(): void {
+    this.modalErrorVisualizacion = new window.bootstrap.Modal(
+      document.getElementById("modalErrorVisualizacion")
+    );
   }
 
   consultarTodos(): void {
     this.asignaturaSvc.consultarTodos().subscribe((data: Respuesta) => {
       this.asignaturas = data.response;
       // console.log(this.asignaturas);
+    },
+    (data: HttpErrorResponse) => {
+      // console.log(data.error.response);
+      if(data.status == 504) {
+        this.modalErrorVisualizacion.show();
+      }
     });
   }
 
