@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Usuario } from '../dtos/usuario-dto';
 import { environment } from 'src/environment/environment';
 import { UsuarioRegistrar } from '../dtos/usuario-registrar-dto';
 import { Respuesta } from '../dtos/respuesta';
@@ -13,6 +12,14 @@ import { Respuesta } from '../dtos/respuesta';
 export class UsuariosService {
 
   constructor(private http: HttpClient) {}
+
+  consultarTodosEstudiantes(): Observable<Respuesta> {
+    return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Usuario/TodosEstudiantes');
+  }
+
+  consultarPorNombre(nombres: string): Observable<Respuesta> {
+    return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Usuario/ConsultarEstudiantePorNombre/'+ nombres);
+  }
 
   registrar(usuario: UsuarioRegistrar): Observable<Respuesta> {
     const header = new HttpHeaders();
@@ -57,7 +64,7 @@ export class UsuariosService {
     return tipoUsuarioDescripcion;
   }
 
-  consultarTodos(): Observable<Usuario[]> {
-    return this.http.get<Usuario[]>(environment.URL_BACK_COLEGIOS+'Usuario/Todos');
+  consultarTodos(): Observable<Respuesta> {
+    return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Usuario/Todos');
   }
 }

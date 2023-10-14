@@ -1,4 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Constantes } from 'src/app/utils/constantes';
+
+declare var window: any;
 
 @Component({
   selector: 'filtro-busqueda',
@@ -15,7 +18,6 @@ export class FiltroBusquedaComponent implements OnInit {
   ocutarSelectAsignatura: boolean = true;
   selectAsignatura: string = '00';
   @Output() infoSeleccionada = new EventEmitter<any[]>();
-  infoModal: string[] = ['02', 'Consulta fallida', 'No se encontraron elementos'];
 
   ngOnInit(): void {
     this.elegirFiltracion();

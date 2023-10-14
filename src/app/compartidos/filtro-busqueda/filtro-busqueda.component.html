@@ -14,9 +14,13 @@
     </select>
     <input type="text" class="form-control" placeholder="Busqueda" (keydown)="activarBotonBuscar()"
         [(ngModel)]="caracteresInputBuscar">
-    <button [class]="classBtnBuscar" [disabled]="activacionBotonBuscar" (click)="enviarInfoSeleccionada()" data-bs-toggle="modal" data-bs-target="#modalGeneral"> Buscar </button>
+    <button [class]="classBtnBuscar" [disabled]="activacionBotonBuscar" (click)="enviarInfoSeleccionada()"> Buscar </button>
 </div>
 
-<div class="modal fade" id="modalGeneral" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <modal-general [infoModal]="infoModal"></modal-general>
-</div>
+<!-- 
+    LLamar al modal desde vista, esto va en el boton que activa el modal
+    data-bs-toggle="modal" data-bs-target="#modalGeneral"
+
+    Esto va en el div del modal
+    id="modalGeneral"
+-->

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AsignaturaDto } from 'src/app/dtos/asignatura-dto';
 import { Respuesta } from 'src/app/dtos/respuesta';
 import { AsignaturasService } from 'src/app/servicios/asignaturas.service';
+import { Constantes } from 'src/app/utils/constantes';
 
 declare var window: any;
 
@@ -14,8 +15,10 @@ declare var window: any;
 export class VisualizarAsignaturasComponent implements OnInit {
 
   asignaturas!: AsignaturaDto[];
-  infoModal: string[] = ['02', 'Consulta Fallida', 'Los servidores del Software Horario estan abajo'];
-  modalErrorVisualizacion!: any;
+  infoModalServidorCaido: string[] = Constantes.infoModalServidorHorarioCaido;
+  modalErrorServidorCaido!: any;
+  modalErrorObjetoNoEncontrado!: any;
+  infoModalObjetoNoEncontrado: string[] = Constantes.infoModalObjetoNoEncontrado;
 
   constructor(private asignaturaSvc: AsignaturasService) {}
 
@@ -25,8 +28,11 @@ export class VisualizarAsignaturasComponent implements OnInit {
   }
 
   cargarModals(): void {
-    this.modalErrorVisualizacion = new window.bootstrap.Modal(
-      document.getElementById("modalErrorVisualizacion")
+    this.modalErrorServidorCaido = new window.bootstrap.Modal(
+      document.getElementById("modalErrorServidorCaido")
+    );
+    this.modalErrorObjetoNoEncontrado = new window.bootstrap.Modal(
+      document.getElementById("modalErrorObjetoNoEncontrado")
     );
   }
 
@@ -38,7 +44,7 @@ export class VisualizarAsignaturasComponent implements OnInit {
     (data: HttpErrorResponse) => {
       // console.log(data.error.response);
       if(data.status == 504) {
-        this.modalErrorVisualizacion.show();
+        this.modalErrorServidorCaido.show();
       }
     });
   }
@@ -49,29 +55,22 @@ export class VisualizarAsignaturasComponent implements OnInit {
     let filtrarA = datos[2];
     if(filtrarA == '02') {
       this.asignaturas = [];
-      this.filtrarAsignaturas(datos[1]);
+      this.filtrarAsignaturaPorNombre(datos[1]);
     }
     if(filtrarA == '01') {
-      this.filtrarEstudiantes();
     }
-  }
-
-  filtrarAsignaturas(campoBuscar: string): void {
-    this.filtrarAsignaturaPorNombre(campoBuscar);
   }
 
   filtrarAsignaturaPorNombre(nombre: string): void {
-    this.asignaturas.reduce;
     this.asignaturaSvc.consultarPorNombre(nombre).subscribe((data: Respuesta) => {
       this.asignaturas.push(data.response);
     },
     (data: HttpErrorResponse) => {
-      console.log(data.error.response);
+      //console.log(data.error.response);
+      if(data.status == 404) {
+        this.consultarTodos();
+        this.modalErrorObjetoNoEncontrado.show();
+      }
     });
   }
-
-  filtrarEstudiantes(): void {
-    console.log('Filtrar a Estudiantes...!');
-  }
-
 }

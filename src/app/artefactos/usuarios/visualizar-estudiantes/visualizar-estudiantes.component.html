@@ -1,0 +1,12 @@
+
+<div id="divPrincipal">
+    <filtro-busqueda [filtrarA]="'01'" (infoSeleccionada)="recibirFiltrosBusqueda($event)"></filtro-busqueda>
+    <visualizar-usuarios [usuarios]="estudiantes"></visualizar-usuarios>
+</div>
+
+<div id="modalErrorServidorHorarioCaido" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <modal-general [infoModal]="infoModalServidorHorarioCaido"></modal-general>
+</div>
+<div id="modalErrorObjetoNoEncontrado" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <modal-general [infoModal]="infoModalObjetoNoEncontrado"></modal-general>
+</div>
