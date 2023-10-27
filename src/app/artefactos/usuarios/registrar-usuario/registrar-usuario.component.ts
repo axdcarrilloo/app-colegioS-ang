@@ -32,6 +32,7 @@ export class RegistrarUsuarioComponent implements OnInit {
         this.usuarioForm.reset();
       }
     }, (error: HttpErrorResponse) => {
+      console.log(usuarioRegistrar);
       console.log(error.error.response);
     });
   }

@@ -16,8 +16,6 @@ export class VisualizarEstudiantesComponent {
 
   estudiantes: Usuario[] = [];
 
-  modalErrorServidorHorarioCaido!: any;
-  infoModalServidorHorarioCaido: string[] = Constantes.infoModalServidorHorarioCaido;
   modalErrorObjetoNoEncontrado!: any;
   infoModalObjetoNoEncontrado: string[] = Constantes.infoModalObjetoNoEncontrado;
 
@@ -54,9 +52,6 @@ export class VisualizarEstudiantesComponent {
   }
 
   cargarModals(): void {
-    this.modalErrorServidorHorarioCaido = new window.bootstrap.Modal(
-      document.getElementById("modalErrorServidorHorarioCaido")
-    );
     this.modalErrorObjetoNoEncontrado = new window.bootstrap.Modal(
       document.getElementById("modalErrorObjetoNoEncontrado")
     );
@@ -70,7 +65,6 @@ export class VisualizarEstudiantesComponent {
       //console.log(data.error.response);
       if(data.status == 504) {
         this.consultarTodos();
-        this.modalErrorServidorHorarioCaido.show();
       }
     });
     /*const usuario1 = new Usuario(1, 'EST0001', '01', '02', '102587413', 'Mario', 'Carranza', '322147412', 'Pueblo 54', 'maca', '741258', false, new Date(), new Date());
