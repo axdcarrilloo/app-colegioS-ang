@@ -3,8 +3,8 @@ export const environment = {
     production: false,
 
     //URL Back
-    // URL_BACK_COLEGIOS: 'http://192.168.1.2:2011/Colegios/',
-    URL_BACK_COLEGIOS: 'http://localhost:2011/Colegios/',
+    URL_BACK_COLEGIOS: 'http://192.168.1.5:2011/Colegios/',
+    // URL_BACK_COLEGIOS: 'http://localhost:2011/Colegios/',
 
     //URI de Iconos
     ICON_ESCUDO: "assets/icons/Escudo.png",
