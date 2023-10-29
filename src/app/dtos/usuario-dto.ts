@@ -8,6 +8,8 @@ export class Usuario {
 	apellidos?: string;
 	celular?: string;
 	direccion?: string;
+    edad!: number;
+    email!: string;
 	usuario?: string;
 	contrasenna?: string;
 	eliminado?: boolean;
@@ -15,7 +17,7 @@ export class Usuario {
 	fechaModificacion?: Date;
 
     constructor(id: number, codigo: string, tipoUsuario: string, tipoDocumento: string, numeroDocumento: string, nombres: string, 
-        apellidos: string, celular: string, direccion: string, usuario: string, contrasenna: string, eliminado: boolean, 
+        apellidos: string, celular: string, direccion: string, edad: number, email: string, usuario: string, contrasenna: string, eliminado: boolean, 
         fechaRegistro: Date, fechaModificacion: Date) {
             this.id = id;
             this.codigo = codigo;
@@ -26,6 +28,8 @@ export class Usuario {
             this.apellidos = apellidos;
             this.celular = celular;
             this.direccion = direccion;
+            this.edad = edad;
+            this.email = email;
             this.usuario = usuario;
             this.contrasenna = contrasenna;
             this.eliminado = eliminado;
