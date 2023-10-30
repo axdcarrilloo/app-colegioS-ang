@@ -26,6 +26,10 @@ $colorSeleccion: #ed8a19;
         background-color: $colorSeleccion;
         transition: 0.8s;
     }
+    .li-configuracion {
+        position: absolute;
+        left: 88%;
+    }
     .a-iniciar {
         position: absolute;
         left: 95%;

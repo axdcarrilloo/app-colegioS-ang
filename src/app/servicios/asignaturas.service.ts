@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AsignaturaRegistrarDto } from '../dtos/asignatura-registrar-dto';
 import { Observable } from 'rxjs';
-import { Respuesta } from '../dtos/respuesta';
+
 import { environment } from 'src/environment/environment';
+import { Respuesta } from '../dtos/respuesta';
+import { AsignaturaRegistrarDto } from '../dtos/asignatura-registrar-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,6 @@ export class AsignaturasService {
   }
 
   registrar(asignatura: AsignaturaRegistrarDto): Observable<Respuesta> {
-    console.log(asignatura);    
     const header = new HttpHeaders();
     // header.append('Content-Type', 'multipart/form-data');
     header.append('Content-Type', 'application/json');

@@ -1,0 +1,34 @@
+<div class="container my-5">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="contenido-registro-tab" data-bs-toggle="tab" data-bs-target="#contenido-registro"
+                type="button" role="tab" aria-controls="nav-home" aria-selected="true"> Registro </button>
+
+            <button class="nav-link" id="contenido-isualizacion-tab" data-bs-toggle="tab" data-bs-target="#contenido-isualizacion"
+                type="button" role="tab" aria-controls="nav-profile" aria-selected="false"> Visualizacion </button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active p-3" id="contenido-registro" role="tabpanel" aria-labelledby="contenido-registro-tab">
+            <h2>Registro</h2>
+            <div class="div-registro-rol" *ngIf="opcion == '01'">
+                <form id="formRegistrarRol" [formGroup]="rolForm" (ngSubmit)="registrarRol()">
+                    <div class="mb-2">
+                        <input type="text" formControlName="codigo" class="form-control" placeholder="Codigo">
+                        <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
+                    </div>    
+                    <button type="submit" class="btn btnRegistrar"> Registrar </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="tab-pane fade p-3" id="contenido-isualizacion" role="tabpanel" aria-labelledby="contenido-isualizacion-tab">
+            <h2>Visualizacion</h2>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, cupiditate nam aperiam possimus, ratione
+                modi enim inventore reiciendis ipsum mollitia, adipisci accusamus! Dolorem omnis illo incidunt ex, sit
+                minus numquam.
+            </p>
+        </div>
+    </div>
+</div>

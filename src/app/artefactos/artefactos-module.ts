@@ -12,10 +12,13 @@ import { RegistrarAsignaturasComponent } from './asignaturas/registrar-asignatur
 import { VisualizarAsignaturasComponent } from './asignaturas/visualizar-asignaturas/visualizar-asignaturas.component';
 import { CompartidosModule } from '../compartidos/compartidos-module';
 import { VisualizarEstudiantesComponent } from './usuarios/visualizar-estudiantes/visualizar-estudiantes.component';
+import { RolesComponent } from './codificacion/roles/roles.component';
+import { CodigosComponent } from './codificacion/codigos/codigos.component';
+import { PestannasComponent } from './codificacion/pestannas/pestannas.component';
 
 @NgModule({
     declarations: [ MenuPrincipalComponent, RegistrarUsuarioComponent, VisualizarUsuariosComponent, RegistrarAsignaturasComponent, VisualizarAsignaturasComponent,
-        VisualizarEstudiantesComponent    
+        VisualizarEstudiantesComponent, RolesComponent, CodigosComponent, PestannasComponent
     ],
     imports:[ CommonModule, AppRoutingModule, ServiciosModule, FormsModule, ReactiveFormsModule, CompartidosModule ],
     exports: [ MenuPrincipalComponent ]
