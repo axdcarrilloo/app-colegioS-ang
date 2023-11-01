@@ -1,0 +1,68 @@
+
+$colorSeleccion: #ed8a19;
+$colorFondoMenu: #ebba16;
+
+.container {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .nav-link:focus {
+        background-color: $colorSeleccion;
+    }
+
+    .nav-link {
+        color: black;
+    }
+
+    .formRegistrar {
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+
+        border: 5px solid $colorSeleccion;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    div>.form-control {
+        margin-top: 5px;
+        margin-left: auto;
+        margin-right: auto;
+
+        width: 70%;
+        text-align: center;
+        transition: border 0.3s ease-in-out;
+    }
+    div>.form-control:focus {
+        box-shadow: 4px 4px 12px $colorSeleccion, -4px -4px 12px $colorSeleccion;
+    }
+
+    .btnRegistrar {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        background-color: $colorSeleccion;
+    }
+    .btnRegistrar:hover {
+        transition: 0.9s;
+        background-color: $colorFondoMenu;
+    }
+
+    //Visualizar
+    .inputsMostrar {
+        margin-left: 8px;
+
+        width: 30px;
+        border-radius: 10px;
+        text-align: center;
+        color: #000000;
+    }
+
+    .card {
+        background-color: #ffbb9c;
+        width: 150px;
+    }
+    .lbs {
+        width: 55px;
+    }
+}

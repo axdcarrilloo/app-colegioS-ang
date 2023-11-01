@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Constantes } from 'src/app/utils/constantes';
 
 @Component({
   selector: 'roles',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./roles.component.scss']
 })
 export class RolesComponent {
+
+  opcionRol = Constantes.opcionRol;
 
 }

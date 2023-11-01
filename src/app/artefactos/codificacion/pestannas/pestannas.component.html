@@ -1,34 +1,69 @@
 <div class="container my-5">
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="contenido-registro-tab" data-bs-toggle="tab" data-bs-target="#contenido-registro"
-                type="button" role="tab" aria-controls="nav-home" aria-selected="true"> Registro </button>
+            <button class="nav-link active" id="contenido-registro-tab" data-bs-toggle="tab"
+                data-bs-target="#contenido-registro" type="button" role="tab" aria-controls="nav-home"
+                aria-selected="true"> Registro </button>
 
-            <button class="nav-link" id="contenido-isualizacion-tab" data-bs-toggle="tab" data-bs-target="#contenido-isualizacion"
-                type="button" role="tab" aria-controls="nav-profile" aria-selected="false"> Visualizacion </button>
+            <button class="nav-link" id="contenido-isualizacion-tab" data-bs-toggle="tab"
+                data-bs-target="#contenido-isualizacion" type="button" role="tab" aria-controls="nav-profile"
+                aria-selected="false" (click)="mostrar()"> Visualizacion </button>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active p-3" id="contenido-registro" role="tabpanel" aria-labelledby="contenido-registro-tab">
+        <div class="tab-pane fade show active p-3" id="contenido-registro" role="tabpanel"
+            aria-labelledby="contenido-registro-tab">
             <h2>Registro</h2>
-            <div class="div-registro-rol" *ngIf="opcion == '01'">
-                <form id="formRegistrarRol" [formGroup]="rolForm" (ngSubmit)="registrarRol()">
+            <!-- Registro de rol -->
+            <div class="div-registro-rol" *ngIf="opcion == opcionRol">
+                <form id="formRegistrarRol" class="formRegistrar" [formGroup]="rolForm" (ngSubmit)="registrarRol()">
                     <div class="mb-2">
                         <input type="text" formControlName="codigo" class="form-control" placeholder="Codigo">
                         <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">
-                    </div>    
+                    </div>
+                    <button type="submit" class="btn btnRegistrar"> Registrar </button>
+                </form>
+            </div>
+            <!-- Registro de codigo -->
+            <div class="div-registro-codigo" *ngIf="opcion == opcionCodigo">
+                <form id="formRegistrarCodigo" class="formRegistrar" [formGroup]="codigoForm" (ngSubmit)="registrarCodigo()">
+                    <div class="mb-2">
+                        <select type="text" formControlName="rol" class="form-control">
+                            <option value="00"> Selecione una opcion </option>
+                            <option value="{{ rol.id }}" *ngFor="let rol of roles"> {{ rol.nombre }} </option>
+                            <!-- <option>selected1</option>
+                            <option>selected2</option> -->
+                        </select>
+                        <input type="text" formControlName="prefijo" class="form-control" placeholder="Prefijo"/>
+                        <input type="text" formControlName="descripcion" class="form-control" placeholder="Descripcion"/>
+                    </div>
                     <button type="submit" class="btn btnRegistrar"> Registrar </button>
                 </form>
             </div>
         </div>
 
-        <div class="tab-pane fade p-3" id="contenido-isualizacion" role="tabpanel" aria-labelledby="contenido-isualizacion-tab">
+        <div class="tab-pane fade p-3" id="contenido-isualizacion" role="tabpanel"
+            aria-labelledby="contenido-isualizacion-tab">
             <h2>Visualizacion</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi, cupiditate nam aperiam possimus, ratione
-                modi enim inventore reiciendis ipsum mollitia, adipisci accusamus! Dolorem omnis illo incidunt ex, sit
-                minus numquam.
-            </p>
+            <div class="row row-cols-1 row-cols-md-6 g-4">
+                <div class="col" *ngFor="let rol of roles">
+                    <div class="card">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ rol.nombre }} </h5>
+                            <p>
+                                <label class="lbs"> Codigo: </label>
+                                <input class="inputsMostrar" value="{{ rol.codigo }}" disabled />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
+<div class="modal fade" id="modalErrorServidorCaido" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <modal-general [infoModal]="infoModalServidorCaido"></modal-general>
 </div>

@@ -18,7 +18,6 @@ $colorFondoMenu: #ebba16;
         text-align: center;
         transition: border 0.3s ease-in-out;
     }
-
     div>.form-control:focus {
         box-shadow: 4px 4px 12px $colorSeleccion, -4px -4px 12px $colorSeleccion;
     }
@@ -27,7 +26,6 @@ $colorFondoMenu: #ebba16;
         margin-top: 5px;
         background-color: $colorSeleccion;
     }
-
     .btnRegistrar:hover {
         transition: 0.9s;
         background-color: $colorFondoMenu;

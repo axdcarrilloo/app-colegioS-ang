@@ -7,6 +7,7 @@ import { RegistrarAsignaturasComponent } from './artefactos/asignaturas/registra
 import { VisualizarAsignaturasComponent } from './artefactos/asignaturas/visualizar-asignaturas/visualizar-asignaturas.component';
 import { VisualizarEstudiantesComponent } from './artefactos/usuarios/visualizar-estudiantes/visualizar-estudiantes.component';
 import { RolesComponent } from './artefactos/codificacion/roles/roles.component';
+import { CodigosComponent } from './artefactos/codificacion/codigos/codigos.component';
 
 const routes: Routes = [
   { path: 'inicio', component: AppComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'visualizar-estudiantes', component: VisualizarEstudiantesComponent },
   { path: 'registrar-asignatura', component: RegistrarAsignaturasComponent },
   { path: 'visualizar-asignatura', component: VisualizarAsignaturasComponent },
-  { path: 'roles', component: RolesComponent }
+  { path: 'roles', component: RolesComponent },
+  { path: 'codigos', component: CodigosComponent }
   
 ];
 

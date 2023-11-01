@@ -1,4 +1,4 @@
-export class Rol {
+export class RolDto {
     id?: number;
     codigo?: string;
     nombre?: string;

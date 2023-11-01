@@ -5,10 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsuariosService } from './usuarios.service';
 import { AsignaturasService } from './asignaturas.service';
 import { RolService } from './rol.service';
+import { CodigoService } from './codigo.service';
 
 @NgModule({
   declarations: [],
   imports: [ CommonModule, HttpClientModule ],
-  providers: [ UsuariosService, AsignaturasService, RolService ]
+  providers: [ UsuariosService, AsignaturasService, RolService, CodigoService ]
 })
 export class ServiciosModule { }
