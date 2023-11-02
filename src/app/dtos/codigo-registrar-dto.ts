@@ -1,9 +1,9 @@
 import { RolDto } from "./rol-dto";
 
 export class CodigoRegistrarDto {
-    rol!: RolDto;
-    prefijo!: string;
-    descripcion!: string;
+    rol?: RolDto;
+    prefijo?: string;
+    descripcion?: string;
 
     constructor (rol: RolDto, prefijo: string, descripcion: string) {
         this.rol = rol;

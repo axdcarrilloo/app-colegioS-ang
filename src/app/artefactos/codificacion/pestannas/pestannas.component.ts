@@ -8,6 +8,7 @@ import { Respuesta } from 'src/app/dtos/respuesta';
 import { RolDto } from 'src/app/dtos/rol-dto';
 import { CodigoDto } from 'src/app/dtos/codigo-dto';
 import { CodigoService } from 'src/app/servicios/codigo.service';
+import { CodigoRegistrarDto } from 'src/app/dtos/codigo-registrar-dto';
 
 declare var window: any;
 
@@ -41,8 +42,25 @@ export class PestannasComponent implements OnInit {
     }
   }
 
+  consultarRolPorId(id: number): void {
+    this.rolSvc.consultarPorId(id).subscribe((data: Respuesta) => {
+      console.log(data.response);
+    },
+    (data: HttpErrorResponse) => {
+      // console.log(data.error.response);
+      if(data.status == 504) {
+        this.modalErrorServidorCaido.show();
+      }
+    });
+  }
+
   registrarCodigo(): void {
-    let codigoRegistrar = this.codigoForm.value;
+    let codigoFormValue = this.codigoForm.value;
+    let rolGuardarCodigo: RolDto = {};
+    rolGuardarCodigo.id = codigoFormValue.rol;
+
+    let codigoRegistrar: CodigoRegistrarDto = new CodigoRegistrarDto(rolGuardarCodigo, 
+      codigoFormValue.prefijo, codigoFormValue.descripcion);    
     this.codigoSvc.registrar(codigoRegistrar).subscribe((data: Respuesta) => {
       if(data != null) {
         console.log(data);
@@ -50,7 +68,7 @@ export class PestannasComponent implements OnInit {
     }, (error: HttpErrorResponse) => {
       console.log(error.error.response);
     });
-    this.codigoForm.reset();
+    this.cargarFormularioCodigo();
   }
 
   cargarFormularioCodigo(): FormGroup {
@@ -91,7 +109,7 @@ export class PestannasComponent implements OnInit {
   consultarTodosRoles(): void {
     this.rolSvc.consultarTodos().subscribe((data: Respuesta) => {
       this.roles = data.response;
-      // console.log(this.asignaturas);
+      // console.log(this.roles);
     },
     (data: HttpErrorResponse) => {
       // console.log(data.error.response);

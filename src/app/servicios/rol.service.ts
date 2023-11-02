@@ -13,6 +13,10 @@ export class RolService {
 
   constructor(private http: HttpClient) { }
 
+  consultarPorId(id: number): Observable<Respuesta> {
+    return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Rol/ConsultarPorId/'+id);
+  }
+
   consultarTodos(): Observable<Respuesta> {
     return this.http.get<Respuesta>(environment.URL_BACK_COLEGIOS+'Rol/Todos');
   }

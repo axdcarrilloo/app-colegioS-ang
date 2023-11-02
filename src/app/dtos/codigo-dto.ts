@@ -1,6 +1,8 @@
+import { RolDto } from "./rol-dto";
+
 export class CodigoDto {
     id?: number;
-    rol!: number;
+    rol!: RolDto;
     prefijo!: string;
     consecutivo!: string;
     descripcion!: string;
@@ -8,7 +10,7 @@ export class CodigoDto {
     fechaRegistro?: Date;
 	fechaModificacion?: Date;
 
-    constructor(id: number, rol: number, prefijo: string, consecutivo: string, descripcion: string, 
+    constructor(id: number, rol: RolDto, prefijo: string, consecutivo: string, descripcion: string, 
         eliminado: boolean, fechaRegistro: Date, fechaModificacion: Date) {
             this.id = id;
             this.rol = rol;
@@ -19,5 +21,9 @@ export class CodigoDto {
             this.fechaRegistro = fechaRegistro;
             this.fechaModificacion = fechaModificacion;
 
+    }
+
+    setRol(rol: RolDto) {
+        this.rol = rol;
     }
 }

@@ -5,17 +5,17 @@
                 data-bs-target="#contenido-registro" type="button" role="tab" aria-controls="nav-home"
                 aria-selected="true"> Registro </button>
 
-            <button class="nav-link" id="contenido-isualizacion-tab" data-bs-toggle="tab"
-                data-bs-target="#contenido-isualizacion" type="button" role="tab" aria-controls="nav-profile"
+            <button class="nav-link" id="contenido-visualizacion-tab" data-bs-toggle="tab"
+                data-bs-target="#contenido-visualizacion" type="button" role="tab" aria-controls="nav-profile"
                 aria-selected="false" (click)="mostrar()"> Visualizacion </button>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active p-3" id="contenido-registro" role="tabpanel"
             aria-labelledby="contenido-registro-tab">
-            <h2>Registro</h2>
             <!-- Registro de rol -->
             <div class="div-registro-rol" *ngIf="opcion == opcionRol">
+                <h2>Registro Rol</h2>
                 <form id="formRegistrarRol" class="formRegistrar" [formGroup]="rolForm" (ngSubmit)="registrarRol()">
                     <div class="mb-2">
                         <input type="text" formControlName="codigo" class="form-control" placeholder="Codigo">
@@ -24,11 +24,13 @@
                     <button type="submit" class="btn btnRegistrar"> Registrar </button>
                 </form>
             </div>
+
             <!-- Registro de codigo -->
             <div class="div-registro-codigo" *ngIf="opcion == opcionCodigo">
+                <h2>Registro Codigo</h2>
                 <form id="formRegistrarCodigo" class="formRegistrar" [formGroup]="codigoForm" (ngSubmit)="registrarCodigo()">
                     <div class="mb-2">
-                        <select type="text" formControlName="rol" class="form-control">
+                        <select type="number" formControlName="rol" class="form-control">
                             <option value="00"> Selecione una opcion </option>
                             <option value="{{ rol.id }}" *ngFor="let rol of roles"> {{ rol.nombre }} </option>
                             <!-- <option>selected1</option>
@@ -42,10 +44,11 @@
             </div>
         </div>
 
-        <div class="tab-pane fade p-3" id="contenido-isualizacion" role="tabpanel"
-            aria-labelledby="contenido-isualizacion-tab">
-            <h2>Visualizacion</h2>
-            <div class="row row-cols-1 row-cols-md-6 g-4">
+        <div class="tab-pane fade p-3" id="contenido-visualizacion" role="tabpanel"
+            aria-labelledby="contenido-visualizacion-tab">
+            <!-- Visualizacion de roles -->
+            <h2 *ngIf="opcion == opcionRol">Visualizacion Roles</h2>
+            <div class="row row-cols-1 row-cols-md-6 g-4" *ngIf="opcion == opcionRol">
                 <div class="col" *ngFor="let rol of roles">
                     <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -54,6 +57,27 @@
                             <p>
                                 <label class="lbs"> Codigo: </label>
                                 <input class="inputsMostrar" value="{{ rol.codigo }}" disabled />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualizacion de codigos -->
+            <h2 *ngIf="opcion == opcionCodigo">Visualizacion Codigos</h2>
+            <div class="row row-cols-1 row-cols-md-6 g-4" *ngIf="opcion == opcionCodigo">
+                <div class="col" *ngFor="let codigo of codigos">
+                    <div class="card card-codigos">
+                        <!-- <img src="..." class="card-img-top" alt="..."> -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ codigo.rol.nombre }} </h5>
+                            <p>
+                                <label class="lbs"> Prefijo: </label>
+                                <input class="inputsMostrar" value="{{ codigo.prefijo }}" disabled />
+                            </p>
+                            <p>
+                                <label class="lbs"> Consecutivo: </label>
+                                <input class="inputsMostrar" value="{{ codigo.consecutivo }}" disabled />
                             </p>
                         </div>
                     </div>
