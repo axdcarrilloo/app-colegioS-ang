@@ -13,6 +13,8 @@ export class ModalGeneralComponent implements OnInit {
   //Pocision[2]: Mensaje
   @Input() infoModal!: string[];
 
+  modalHeader: string = 'modal-header-exitoso';
+
   ngOnInit(): void {
     this.cargarModal();
   }
@@ -20,6 +22,7 @@ export class ModalGeneralComponent implements OnInit {
   cargarModal(): void {
     if(this,this.infoModal[0] == '02') {
       this.imgMensaje = '../../../assets/icons/error.png';
+      this.modalHeader = 'modal-header-error';
     }
   }
 

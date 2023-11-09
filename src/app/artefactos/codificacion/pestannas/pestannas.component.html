@@ -48,7 +48,7 @@
             aria-labelledby="contenido-visualizacion-tab">
             <!-- Visualizacion de roles -->
             <h2 *ngIf="opcion == opcionRol">Visualizacion Roles</h2>
-            <div class="row row-cols-1 row-cols-md-6 g-4" *ngIf="opcion == opcionRol">
+            <div class="row row-cols-1 row-cols-md-5 g-4" *ngIf="opcion == opcionRol">
                 <div class="col" *ngFor="let rol of roles">
                     <div class="card">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -87,7 +87,14 @@
     </div>
 </div>
 
-<div class="modal fade" id="modalErrorServidorCaido" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalRegistroFallidoSiExistencia" tabindex="-1" aria-hidden="true">
+    <modal-general [infoModal]="infoModalRegistroFallidoSiExistencia"></modal-general>
+</div>
+
+<div class="modal fade" id="modalRegistroExitoso" tabindex="-1" aria-hidden="true">
+    <modal-general [infoModal]="infoModalRegistroExitoso"></modal-general>
+</div>
+
+<div class="modal fade" id="modalErrorServidorCaido" tabindex="-1" aria-hidden="true">
     <modal-general [infoModal]="infoModalServidorCaido"></modal-general>
 </div>

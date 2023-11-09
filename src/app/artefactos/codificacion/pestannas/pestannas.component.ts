@@ -28,12 +28,18 @@ export class PestannasComponent implements OnInit {
   opcionCodigo = Constantes.opcionCodigo;
   codigos?: CodigoDto[] = [];
 
+// Modales de alertas
+  infoModalRegistroFallidoSiExistencia: string[] = Constantes.infoModalRegistroFallidoSiExistencia;
+  modalRegistroFallidoSiExistencia!: any;
   infoModalServidorCaido: string[] = Constantes.infoModalServidorHorarioCaido;
   modalErrorServidorCaido!: any;
+  infoModalRegistroExitoso: string[] = Constantes.infoModalRegistroExitoso;
+  modalRegistroExitoso!: any;
 
   constructor(private fb: FormBuilder, private rolSvc: RolService, private codigoSvc: CodigoService) {}
 
   ngOnInit(): void {
+    this.cargarModals();
     if(this.opcion == Constantes.opcionRol) {
       this.rolForm = this.cargarFormularioRol();
     } else if(this.opcion == Constantes.opcionCodigo) {
@@ -101,8 +107,14 @@ export class PestannasComponent implements OnInit {
   }
 
   cargarModals(): void {
+    this.modalRegistroFallidoSiExistencia = new window.bootstrap.Modal(
+      document.getElementById("modalRegistroFallidoSiExistencia")
+    );
     this.modalErrorServidorCaido = new window.bootstrap.Modal(
       document.getElementById("modalErrorServidorCaido")
+    );
+    this.modalRegistroExitoso = new window.bootstrap.Modal(
+      document.getElementById("modalRegistroExitoso")
     );
   }
 
@@ -124,9 +136,13 @@ export class PestannasComponent implements OnInit {
     this.rolSvc.registrar(rolRegistrar).subscribe((data: Respuesta) => {
       if(data != null) {
         console.log(data);
+        this.modalRegistroExitoso.show();
       }
-    }, (error: HttpErrorResponse) => {
-      console.log(error.error.response);
+    }, (data: HttpErrorResponse) => {
+      // console.log(data.error);
+      if(data.status == 400 && data.error.response == this.infoModalRegistroFallidoSiExistencia[2]) {
+        this.modalRegistroFallidoSiExistencia.show();
+      }
     });
     this.rolForm.reset();
   }
