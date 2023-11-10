@@ -48,18 +48,6 @@ export class PestannasComponent implements OnInit {
     }
   }
 
-  consultarRolPorId(id: number): void {
-    this.rolSvc.consultarPorId(id).subscribe((data: Respuesta) => {
-      console.log(data.response);
-    },
-    (data: HttpErrorResponse) => {
-      // console.log(data.error.response);
-      if(data.status == 504) {
-        this.modalErrorServidorCaido.show();
-      }
-    });
-  }
-
   registrarCodigo(): void {
     let codigoFormValue = this.codigoForm.value;
     let rolGuardarCodigo: RolDto = {};
@@ -97,7 +85,7 @@ export class PestannasComponent implements OnInit {
       }
     });
   }
-
+//    Codigo de ambos (Neutro) - Inicio
   mostrar(): void {
     if(this.opcion == Constantes.opcionRol) {           
       this.consultarTodosRoles();
@@ -116,6 +104,31 @@ export class PestannasComponent implements OnInit {
     this.modalRegistroExitoso = new window.bootstrap.Modal(
       document.getElementById("modalRegistroExitoso")
     );
+  }
+//    Codigo de ambos (Neutro) - Fin
+
+  eliminarRolPorId(id: number): void {
+    this.rolSvc.eliminarPorId(id).subscribe((data: Respuesta) => {
+      console.log(data.response);
+    },
+    (data: HttpErrorResponse) => {
+      // console.log(data.error.response);
+      if(data.status == 204) {
+        this.modalErrorServidorCaido.show();
+      }
+    });
+  }
+
+  consultarRolPorId(id: number): void {
+    this.rolSvc.consultarPorId(id).subscribe((data: Respuesta) => {
+      console.log(data.response);
+    },
+    (data: HttpErrorResponse) => {
+      // console.log(data.error.response);
+      if(data.status == 504) {
+        this.modalErrorServidorCaido.show();
+      }
+    });
   }
 
   consultarTodosRoles(): void {
