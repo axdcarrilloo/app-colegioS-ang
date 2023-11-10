@@ -61,8 +61,24 @@ $colorFondoMenu: #ebba16;
     .card {
         background-color: #ffbb9c;
         width: 220px;
-    }
-    .lbs {
-        width: 98px;
+
+        .lbs {
+            width: 98px;
+        }
+
+        .card-footer{
+            display: flex;
+
+            .a-editar {
+                margin-left: auto;
+                margin-right: -2px;
+            }
+
+            .img-btn-accion {
+                width: 18px;
+                height: 20px;
+                cursor: pointer;
+            }
+        }
     }
 }

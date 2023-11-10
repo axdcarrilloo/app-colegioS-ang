@@ -5,6 +5,7 @@ $colorFondoMenu: #ebba16;
 .modal-content {
     .modal-header-error {
         background-color: red;
+        height: 40px;
     }
     .modal-header-exitoso {
         background-color: $colorFondoMenu;

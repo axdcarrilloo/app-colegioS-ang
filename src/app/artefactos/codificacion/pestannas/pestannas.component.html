@@ -59,6 +59,14 @@
                                 <input class="inputsMostrar" value="{{ rol.codigo }}" disabled />
                             </p>
                         </div>
+                        <div class="card-footer">
+                            <a title="Eliminar">
+                                <img class="img-btn-accion" src="../../../../assets/icons/eliminar.png"/>
+                            </a>
+                            <a class="a-editar" title="Editar">
+                                <img class="img-btn-accion" src="../../../../assets/icons/editar.png"/>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,7 +95,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="modalRegistroFallidoSiExistencia" tabindex="-1" aria-hidden="true">
+<div class="modal" id="modalRegistroFallidoSiExistencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <modal-general [infoModal]="infoModalRegistroFallidoSiExistencia"></modal-general>
 </div>
 
