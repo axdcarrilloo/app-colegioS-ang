@@ -4,10 +4,11 @@ import { FiltroBusquedaComponent } from './filtro-busqueda/filtro-busqueda.compo
 import { FormsModule } from '@angular/forms';
 import { ModalGeneralComponent } from './modal-general/modal-general.component';
 import { BtnsAccionCodificacionComponent } from './btns-accion-codificacion/btns-accion-codificacion.component';
+import { PreguntaEliminacionComponent } from './pregunta-eliminacion/pregunta-eliminacion.component';
 
 @NgModule({
-    declarations: [ FiltroBusquedaComponent, ModalGeneralComponent, BtnsAccionCodificacionComponent ],
+    declarations: [ FiltroBusquedaComponent, ModalGeneralComponent, BtnsAccionCodificacionComponent, PreguntaEliminacionComponent ],
     imports: [ FormsModule ],
-    exports: [ FiltroBusquedaComponent, ModalGeneralComponent, BtnsAccionCodificacionComponent ]
+    exports: [ FiltroBusquedaComponent, ModalGeneralComponent, BtnsAccionCodificacionComponent, PreguntaEliminacionComponent ]
 })
 export class CompartidosModule {}

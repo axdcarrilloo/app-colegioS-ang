@@ -90,6 +90,11 @@
     </div>
 </div>
 
+<div class="modal fade" id="modalPreguntaEliminacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <pregunta-eliminacion (respuestaEmit)="obtenerRespuestaDelModalPreguntaEliminacion($event)"></pregunta-eliminacion>
+</div>
+
 <div class="modal" id="modalRegistroFallidoSiExistencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <modal-general [infoModal]="infoModalRegistroFallidoSiExistencia"></modal-general>
 </div>

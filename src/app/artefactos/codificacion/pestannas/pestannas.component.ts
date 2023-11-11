@@ -29,6 +29,8 @@ export class PestannasComponent implements OnInit {
   codigos?: CodigoDto[] = [];
 
 // Modales de alertas
+  respuestaDelmodalPreguntaEliminacion: string = 'No';
+  modalPreguntaEliminacion!: any;
   infoModalRegistroFallidoSiExistencia: string[] = Constantes.infoModalRegistroFallidoSiExistencia;
   modalRegistroFallidoSiExistencia!: any;
   infoModalServidorCaido: string[] = Constantes.infoModalServidorHorarioCaido;
@@ -97,6 +99,9 @@ export class PestannasComponent implements OnInit {
   }
 
   cargarModals(): void {
+    this.modalPreguntaEliminacion = new window.bootstrap.Modal(
+      document.getElementById("modalPreguntaEliminacion")
+    );
     this.modalRegistroFallidoSiExistencia = new window.bootstrap.Modal(
       document.getElementById("modalRegistroFallidoSiExistencia")
     );
@@ -114,15 +119,24 @@ export class PestannasComponent implements OnInit {
     
   }
 
-  eliminarRolPorId(id: any): void {
-    console.log('Este es el Id a Eliminar '+ id);
+  obtenerRespuestaDelModalPreguntaEliminacion(respuesta: any): void {
+    this.respuestaDelmodalPreguntaEliminacion = respuesta;
+    console.log(respuesta);
     
-    // this.rolSvc.eliminarPorId(id).subscribe((data: Respuesta) => {
-    //   console.log(data);
-    // },
-    // (data: HttpErrorResponse) => {
-    //   console.log(data.error);
-    // });
+  }
+
+  eliminarRolPorId(id: any): void {
+    // this.modalPreguntaEliminacion.show();
+    // console.log(this.respuestaDelmodalPreguntaEliminacion);
+    
+    if(this.respuestaDelmodalPreguntaEliminacion == 'Si') {
+      this.rolSvc.eliminarPorId(id).subscribe((data: Respuesta) => {
+        console.log(data);
+      },
+      (data: HttpErrorResponse) => {
+        console.log(data.error);
+      });
+    }
   }
 
   consultarRolPorId(id: number): void {

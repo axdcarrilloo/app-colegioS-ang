@@ -1,0 +1,39 @@
+
+$colorSeleccion: #ed8a19;
+$colorFondoMenu: #ebba16;
+
+.modal-content {
+    .modal-header {
+        background-color: red;
+        height: 40px;
+    }
+
+    div > img {
+        width: 55px;
+        height: 28;
+        margin-right: 15px;
+    }
+
+    .modal-body {
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    div > h3 {
+        font-size: 18px;
+    }
+
+    .btnCerrar {
+        background-color: $colorSeleccion;
+        border-radius: 10px;
+        // height: 38px;
+        margin-left: 15px;
+    }
+
+    .btnCerrar:hover {
+        transition: 0.9s;
+        background-color: $colorFondoMenu;
+    }
+}

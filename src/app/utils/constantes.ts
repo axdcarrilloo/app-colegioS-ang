@@ -5,6 +5,7 @@ export class Constantes {
     static opcionCodigo: string = '02';
 
     //Mensajes de alertas
+    static infoModalPreguntaEliminacion: string[] = ['02', 'Seguridad al Eliminar', 'Esta seguro de querer eliminar?'];
     static infoModalRegistroFallidoSiExistencia: string[] = ['02', 'Registro Fallido', 'Ya se encuentra registrado'];
     static infoModalRegistroExitoso: string[] = ['01', 'Registro Exitoso', 'Registro guardado satisfactoriamente'];
     static infoModalObjetoNoEncontrado: string[] = ['02', 'Consulta fallida', 'No se encontraron elementos'];
