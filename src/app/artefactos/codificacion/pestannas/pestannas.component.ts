@@ -36,6 +36,8 @@ export class PestannasComponent implements OnInit {
   infoModalRegistroExitoso: string[] = Constantes.infoModalRegistroExitoso;
   modalRegistroExitoso!: any;
 
+  datosParaLosBotonesAccion: string[] = [];
+
   constructor(private fb: FormBuilder, private rolSvc: RolService, private codigoSvc: CodigoService) {}
 
   ngOnInit(): void {
@@ -107,16 +109,20 @@ export class PestannasComponent implements OnInit {
   }
 //    Codigo de ambos (Neutro) - Fin
 
-  eliminarRolPorId(id: number): void {
-    this.rolSvc.eliminarPorId(id).subscribe((data: Respuesta) => {
-      console.log(data.response);
-    },
-    (data: HttpErrorResponse) => {
-      // console.log(data.error.response);
-      if(data.status == 204) {
-        this.modalErrorServidorCaido.show();
-      }
-    });
+  modificarRolPorId(id: any): void {
+    console.log('Este es el Id a Modificar ' + id);
+    
+  }
+
+  eliminarRolPorId(id: any): void {
+    console.log('Este es el Id a Eliminar '+ id);
+    
+    // this.rolSvc.eliminarPorId(id).subscribe((data: Respuesta) => {
+    //   console.log(data);
+    // },
+    // (data: HttpErrorResponse) => {
+    //   console.log(data.error);
+    // });
   }
 
   consultarRolPorId(id: number): void {

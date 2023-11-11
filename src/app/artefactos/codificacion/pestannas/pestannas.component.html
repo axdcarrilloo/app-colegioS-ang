@@ -59,14 +59,9 @@
                                 <input class="inputsMostrar" value="{{ rol.codigo }}" disabled />
                             </p>
                         </div>
-                        <div class="card-footer">
-                            <a title="Eliminar">
-                                <img class="img-btn-accion" src="../../../../assets/icons/eliminar.png"/>
-                            </a>
-                            <a class="a-editar" title="Editar">
-                                <img class="img-btn-accion" src="../../../../assets/icons/editar.png"/>
-                            </a>
-                        </div>
+                        <btns-accion-codificacion [idParaTratarEliminacion]="rol.id" (idParaTratarEliminacionEmit)="eliminarRolPorId($event)"
+                        [idParaTratarModificacion]="rol.id" (idParaTratarModificacionEmit)="modificarRolPorId($event)">
+                        </btns-accion-codificacion>
                     </div>
                 </div>
             </div>
