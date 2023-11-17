@@ -28,7 +28,8 @@
             <!-- Registro de codigo -->
             <div class="div-registro-codigo" *ngIf="opcion == opcionCodigo">
                 <h2>Registro Codigo</h2>
-                <form id="formRegistrarCodigo" class="formRegistrar" [formGroup]="codigoForm" (ngSubmit)="registrarCodigo()">
+                <form id="formRegistrarCodigo" class="formRegistrar" [formGroup]="codigoForm"
+                    (ngSubmit)="registrarCodigo()">
                     <div class="mb-2">
                         <select type="number" formControlName="rol" class="form-control">
                             <option value="00"> Selecione una opcion </option>
@@ -36,8 +37,9 @@
                             <!-- <option>selected1</option>
                             <option>selected2</option> -->
                         </select>
-                        <input type="text" formControlName="prefijo" class="form-control" placeholder="Prefijo"/>
-                        <input type="text" formControlName="descripcion" class="form-control" placeholder="Descripcion"/>
+                        <input type="text" formControlName="prefijo" class="form-control" placeholder="Prefijo" />
+                        <input type="text" formControlName="descripcion" class="form-control"
+                            placeholder="Descripcion" />
                     </div>
                     <button type="submit" class="btn btnRegistrar"> Registrar </button>
                 </form>
@@ -59,8 +61,8 @@
                                 <input class="inputsMostrar" value="{{ rol.codigo }}" disabled />
                             </p>
                         </div>
-                        <btns-accion-codificacion [idParaTratarEliminacion]="rol.id" (idParaTratarEliminacionEmit)="eliminarRolPorId($event)"
-                        [idParaTratarModificacion]="rol.id" (idParaTratarModificacionEmit)="modificarRolPorId($event)">
+                        <btns-accion-codificacion [idParaTratarEliminacion]="rol.id"
+                            (idParaTratarEliminacionEmit)="obtenerIdEliminar($event)">
                         </btns-accion-codificacion>
                     </div>
                 </div>
@@ -92,10 +94,11 @@
 
 <div class="modal fade" id="modalPreguntaEliminacion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <pregunta-eliminacion (respuestaEmit)="obtenerRespuestaDelModalPreguntaEliminacion($event)"></pregunta-eliminacion>
+    <pregunta-eliminacion (respuestaEmit)="respuestaDelModalPreguntaEliminacionRol($event)"></pregunta-eliminacion>
 </div>
 
-<div class="modal" id="modalRegistroFallidoSiExistencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="modalRegistroFallidoSiExistencia" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
     <modal-general [infoModal]="infoModalRegistroFallidoSiExistencia"></modal-general>
 </div>
 

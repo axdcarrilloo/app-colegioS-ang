@@ -38,7 +38,7 @@ export class PestannasComponent implements OnInit {
   infoModalRegistroExitoso: string[] = Constantes.infoModalRegistroExitoso;
   modalRegistroExitoso!: any;
 
-  datosParaLosBotonesAccion: string[] = [];
+  idAEliminar: number = 0;
 
   constructor(private fb: FormBuilder, private rolSvc: RolService, private codigoSvc: CodigoService) {}
 
@@ -83,7 +83,6 @@ export class PestannasComponent implements OnInit {
       // console.log(this.asignaturas);
     },
     (data: HttpErrorResponse) => {
-      // console.log(data.error.response);
       if(data.status == 504) {
         this.modalErrorServidorCaido.show();
       }
@@ -116,22 +115,22 @@ export class PestannasComponent implements OnInit {
 
   modificarRolPorId(id: any): void {
     console.log('Este es el Id a Modificar ' + id);
-    
   }
 
-  obtenerRespuestaDelModalPreguntaEliminacion(respuesta: any): void {
-    this.respuestaDelmodalPreguntaEliminacion = respuesta;
-    console.log(respuesta);
-    
+  obtenerIdEliminar(id: any): void {
+    this.idAEliminar = id;
+    this.modalPreguntaEliminacion.show();
   }
 
-  eliminarRolPorId(id: any): void {
-    // this.modalPreguntaEliminacion.show();
-    // console.log(this.respuestaDelmodalPreguntaEliminacion);
-    
-    if(this.respuestaDelmodalPreguntaEliminacion == 'Si') {
-      this.rolSvc.eliminarPorId(id).subscribe((data: Respuesta) => {
+  respuestaDelModalPreguntaEliminacionRol(respuesta: string): void {
+    this.eliminarRolPorId(respuesta);
+  }
+
+  eliminarRolPorId(respuestaPreguntaEliminacion: string): void {
+    if(respuestaPreguntaEliminacion == 'Si') {
+      this.rolSvc.eliminarPorId(this.idAEliminar).subscribe((data: Respuesta) => {
         console.log(data);
+        this.consultarTodosRoles();
       },
       (data: HttpErrorResponse) => {
         console.log(data.error);
@@ -144,7 +143,6 @@ export class PestannasComponent implements OnInit {
       console.log(data.response);
     },
     (data: HttpErrorResponse) => {
-      // console.log(data.error.response);
       if(data.status == 504) {
         this.modalErrorServidorCaido.show();
       }
@@ -154,10 +152,8 @@ export class PestannasComponent implements OnInit {
   consultarTodosRoles(): void {
     this.rolSvc.consultarTodos().subscribe((data: Respuesta) => {
       this.roles = data.response;
-      // console.log(this.roles);
     },
     (data: HttpErrorResponse) => {
-      // console.log(data.error.response);
       if(data.status == 504) {
         this.modalErrorServidorCaido.show();
       }

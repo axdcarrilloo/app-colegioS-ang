@@ -9,7 +9,7 @@ export class PreguntaEliminacionComponent {
 
   @Output() respuestaEmit = new EventEmitter<string>();
 
-  responder(): void {   
+  responder(): void {
     this.respuestaEmit.emit('Si');
   }
 

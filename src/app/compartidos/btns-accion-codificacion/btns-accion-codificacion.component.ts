@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 
+declare var window: any;
+
 @Component({
   selector: 'btns-accion-codificacion',
   templateUrl: './btns-accion-codificacion.component.html',
@@ -10,8 +12,8 @@ export class BtnsAccionCodificacionComponent {
   @Input() idParaTratarEliminacion: any;
   @Input() idParaTratarModificacion: any;
 
-  @Output() idParaTratarEliminacionEmit = new EventEmitter<any[]>();
-  @Output() idParaTratarModificacionEmit = new EventEmitter<any[]>();
+  @Output() idParaTratarEliminacionEmit = new EventEmitter<any>();
+  @Output() idParaTratarModificacionEmit = new EventEmitter<any>();
 
   enviarDatosTratadosDeEliminacion(): void {
     this.idParaTratarEliminacionEmit.emit(this.idParaTratarEliminacion);
@@ -20,5 +22,5 @@ export class BtnsAccionCodificacionComponent {
   enviarDatosTratadosDeModificacion(): void {
     this.idParaTratarModificacionEmit.emit(this.idParaTratarModificacion);
   }
-
+  
 }
